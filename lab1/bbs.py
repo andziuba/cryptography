@@ -1,19 +1,13 @@
 import math
 import random
-
-
-def is_prime(n):
-    for i in range(2, int(math.sqrt(n)) + 1):
-        if (n % i) == 0:
-            return False
-    return True
+from sympy import isprime
 
 
 # Generuje liczbę pierwszą Bluma (n ≡ 3 mod 4)
 def generate_large_blum_prime():
     while True:
         n = random.randint(100000, 999999)
-        if n % 4 == 3 and is_prime(n):
+        if n % 4 == 3 and isprime(n):
             return n
 
 
