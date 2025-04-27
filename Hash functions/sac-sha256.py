@@ -8,13 +8,12 @@ print(f"Wartość funkcji skrótu: {sha256}")
 
 # Wybór znaku do zmiany
 generated_input_list = list(generated_input)
-char_position = random.randint(0, len(generated_input_list) - 1)
-selected_char = generated_input_list[char_position]
+selected_char = generated_input_list[0]
 
 # Zmiana jednego bitu na wybranym znaku
 bit_position = random.randint(0, 7)
 new_char = chr(ord(selected_char) ^ (1 << bit_position))
-generated_input_list[char_position] = new_char
+generated_input_list[0] = new_char
 modified_input = ''.join(generated_input_list)
 
 new_sha256 = hashlib.sha256(modified_input.encode('utf-8')).hexdigest()
